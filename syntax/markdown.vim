@@ -73,8 +73,10 @@ syn match markdownBlockquote ">\%(\s\|$\)" contained nextgroup=@markdownBlock
 
 syn region markdownCodeBlock start="    \|\t" end="$" contained
 
-syn match markdownListMarker "\%(\t\| \{0,7\}\)[-*+]\%(\s\+\S\)\@=" contained
-syn match markdownOrderedListMarker "\%(\t\| \{0,7}\)\<\d\+\.\%(\s\+\S\)\@=" contained
+syn match markdownListMarker
+      \ "\%(\t\| \{0,8\}\)[-*+]\%(\s\+\S\)\@=" contained
+syn match markdownOrderedListMarker
+      \ "\%(\t\| \{0,8}\)\<\d\+\.\%(\s\+\S\)\@=" contained
 
 syn match markdownRule "\* *\* *\*[ *]*$" contained
 syn match markdownRule "- *- *-[ -]*$" contained

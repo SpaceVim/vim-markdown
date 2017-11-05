@@ -1,5 +1,7 @@
 if exists('b:did_ftplugin') | finish | endif
 
-inoremap <C-b> ****<Left><Left>
+if g:markdown_default_mappings
+    inoremap <C-b> ****<Left><Left>
+endif
 
 let b:did_ftplugin = 1

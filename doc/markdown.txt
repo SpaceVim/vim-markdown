@@ -1,0 +1,23 @@
+*markdown.txt*	vim markdown syntax and filetype plugin
+wsdjeg                                                              *markdown*
+
+==============================================================================
+CONTENTS                                                   *markdown-contents*
+  1. Introduction.............................................|markdown-intro|
+  2. Configuration...........................................|markdown-config|
+
+==============================================================================
+INTRODUCTION                                                  *markdown-intro*
+
+This is Markdown plugin for SpaceVim, It is based on SpaceVim API. This plugin
+include syntax file for Markdown.
+
+==============================================================================
+CONFIGURATION                                                *markdown-config*
+
+                                                 *g:markdown_default_mappings*
+Enable/Diable default mappings when edit markdown file, by default it is
+enabled.
+
+
+vim:tw=78:ts=8:ft=help:norl:

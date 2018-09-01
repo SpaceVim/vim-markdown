@@ -19,5 +19,8 @@ CONFIGURATION                                                *markdown-config*
 Enable/Diable default mappings when edit markdown file, by default it is
 enabled.
 
+                                          *g:vim_markdown_auto_insert_bullets*
+Enable/Diable auto insert bullets, by default it is enabled.
+
 
 vim:tw=78:ts=8:ft=help:norl:

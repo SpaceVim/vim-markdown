@@ -13,11 +13,11 @@ endif
 runtime! syntax/html.vim
 unlet! b:current_syntax
 
-if !exists('g:markdown_fenced_languages')
-  let g:markdown_fenced_languages = []
+if !exists('g:markdown_nested_languages')
+  let g:markdown_nested_languages = []
 endif
 let s:done_include = {}
-for s:type in map(copy(g:markdown_fenced_languages),
+for s:type in map(copy(g:markdown_nested_languages),
       \ 'matchstr(v:val,"[^=]*$")')
   if has_key(s:done_include, matchstr(s:type,'[^.]*'))
     continue
@@ -25,11 +25,15 @@ for s:type in map(copy(g:markdown_fenced_languages),
   if s:type =~ '\.'
     let b:{matchstr(s:type,'[^.]*')}_subtype = matchstr(s:type,'\.\zs.*')
   endif
-  exe 'syn include @markdownHighlight'
-        \ . substitute(s:type,'\.','','g')
-        \ . ' syntax/'
-        \ . matchstr(s:type,'[^.]*').'.vim'
-  unlet! b:current_syntax
+  " add try catch, when no syntax file for fenced language
+  try
+    exe 'syn include @markdownHighlight'
+          \ . substitute(s:type,'\.','','g')
+          \ . ' syntax/'
+          \ . matchstr(s:type,'[^.]*').'.vim'
+    unlet! b:current_syntax
+  catch
+  endtry
   let s:done_include[matchstr(s:type,'[^.]*')] = 1
 endfor
 unlet! s:type
@@ -119,7 +123,7 @@ syn match markdownFootnoteDefinition "^\[^[^\]]\+\]:"
 
 if main_syntax ==# 'markdown'
   let s:done_include = {}
-  for s:type in g:markdown_fenced_languages
+  for s:type in g:markdown_nested_languages
     if has_key(s:done_include, matchstr(s:type,'[^.]*'))
       continue
     endif

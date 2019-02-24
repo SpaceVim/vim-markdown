@@ -137,6 +137,24 @@ endif
 syn match markdownEscape "\\[][\\`*_{}()<>#+.!-]"
 syn match markdownError "\w\@<=_\w\@="
 
+" YAML front matter
+syntax match Comment /\%^---\_.\{-}---$/ contains=@Spell
+
+" My unfinished attempt at getting YAML syntax in the front matter
+" NOT WORKING
+" syntax include @yaml $VIMRUNTIME/syntax/yaml.vim
+" syntax region jekyllFrontMatter start=/\%^---/ end=/^---/ contains=@yaml
+
+" Match Liquid Tags and Filters
+syntax match liquidTag /{[{%].*[}%]}/
+
+
+" Special handling for Octopress {% codeblock %}
+" NOT WORKING
+
+hi def link jekyllFrontMatter             Comment
+hi def link liquidTag                     Statement
+
 hi def link markdownH1                    htmlH1
 hi def link markdownH2                    htmlH2
 hi def link markdownH3                    htmlH3

@@ -178,14 +178,6 @@ else
   hi! def link markdownError Normal
 endif
 
-" Save this file as: .vim/after/syntax/markdown.vim
-unlet! b:current_syntax
-exe 'runtime! syntax/yaml.vim'
-unlet! b:current_syntax
-syn include @YamlTop syntax/yaml.vim
-unlet! b:current_syntax
-syn region yamlHead start="\%^---$" end="^---\s*$" keepend contains=@YamlTop,@Spell
-
 let b:current_syntax = "markdown"
 if main_syntax ==# 'markdown'
   unlet main_syntax

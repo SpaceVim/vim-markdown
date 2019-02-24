@@ -164,7 +164,9 @@ hi def link markdownBoldItalicDelimiter   markdownBoldItalic
 hi def link markdownCodeDelimiter         Delimiter
 
 hi def link markdownEscape                Special
-hi def link markdownError                 Error
+if g:markdown_hi_error
+  hi def link markdownError                 Error
+endif
 
 let b:current_syntax = "markdown"
 if main_syntax ==# 'markdown'

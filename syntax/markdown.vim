@@ -1,3 +1,7 @@
+" fuck the runtime syntax
+syntax clear
+unlet! b:current_syntax
+
 if exists("b:current_syntax")
   finish
 endif
@@ -166,6 +170,8 @@ hi def link markdownCodeDelimiter         Delimiter
 hi def link markdownEscape                Special
 if g:markdown_hi_error
   hi def link markdownError                 Error
+else
+  hi! def link markdownError Normal
 endif
 
 let b:current_syntax = "markdown"

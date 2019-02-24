@@ -183,5 +183,6 @@ if main_syntax ==# 'markdown'
   unlet main_syntax
 endif
 
+runtime! after/syntax/markdown.vim
 
 " vim:set sw=2 cc=80:
